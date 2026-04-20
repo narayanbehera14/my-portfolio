@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { vertexShader, fragmentShader } from './HeroShaders';
 
 import imgSpiderman from '../assets/spiderman/20260407_055437.png';
-import imgMan from '../assets/man/1775519899126.png';
+import imgMan from '../assets/man/Profile.photo.png.jpeg';
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -259,7 +259,7 @@ export default function Hero() {
           {/* Left Side: Intro and Title */}
           <div className="flex-1 max-w-lg lg:max-w-xl text-left">
             <p className="text-sm md:text-base text-gray-300 font-medium tracking-widest uppercase mb-6 opacity-90 drop-shadow-md">
-              Hey, I’m Leeshark
+              Hey, I’m Narayan Behera
             </p>
             
             <h1 className="text-2xl md:text-3xl lg:text-[1rem] xl:text-[3.5rem] font-bold tracking-tighter drop-shadow-2xl leading-[1.05] font-sans">
