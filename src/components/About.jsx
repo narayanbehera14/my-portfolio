@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Reuse our hero assets for the dual-identity mask effect prototype
-import imgSpiderman from '../assets/spiderman/image.png';
-import imgMan from '../assets/man/Profile.photo.png.jpegProfile.photo.png.jpeg';
+// Personal portrait for About section
+import imgProfile from '../assets/man/Profile.photo.png.jpegProfile.photo.png.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,33 +48,7 @@ export default function About() {
     return () => ctx.revert(); // clean up ScrollTrigger
   }, []);
 
-  // 2. Interactive Spotlight Mask
-  const handleMouseMove = (e) => {
-    if (!imageContainerRef.current) return;
-    
-    // Get mouse position relative to the image container
-    const rect = imageContainerRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    
-    // Use GSAP to smoothly lerp the mask center
-    gsap.to(maskRef.current, {
-      '--x': `${x}%`,
-      '--y': `${y}%`,
-      duration: 0.4,
-      ease: 'power2.out'
-    });
-  };
-
-  const handleMouseLeave = () => {
-    // Return to default center position smoothly
-    gsap.to(maskRef.current, {
-      '--x': '50%',
-      '--y': '50%',
-      duration: 0.8,
-      ease: 'power3.out'
-    });
-  };
+  // 2. Removed interactive spotlight mask - using simple portrait now
 
   return (
     <section 
@@ -94,45 +67,14 @@ export default function About() {
         {/* Left Column: Interactive Portrait */}
         <div 
           ref={imageContainerRef}
-          className="relative w-full aspect-[4/5] max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden cursor-crosshair group shadow-2xl border border-white/5"
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          style={{ transform: 'translateZ(0)' }} // Hardware acceleration
+          className="relative w-full aspect-[4/5] max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden group shadow-2xl border border-white/5"
         >
-          {/* Base Layer: Developer Portrait (Moody/Dark) */}
+          {/* Personal Portrait */}
           <img 
-            src={imgMan} 
-            alt="Developer Persona" 
-            className="absolute inset-0 w-full h-full object-cover object-center grayscale opacity-60 mix-blend-luminosity brightness-75 transition-all duration-700 group-hover:scale-105"
+            src={imgProfile} 
+            alt="Narayan Behera" 
+            className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
           />
-
-          {/* Masked Overlay: Superhero Persona (Vibrant) */}
-          <div 
-            ref={maskRef}
-            className="absolute inset-0 w-full h-full"
-            style={{
-              '--x': '50%',
-              '--y': '50%',
-              // The polygon logic simulates a circular spotlight reveal
-              // For a soft glowing edge, clip-path doesn't support blur inherently, but this acts perfectly as the mask.
-              clipPath: 'circle(15% at var(--x) var(--y))',
-              transition: 'clip-path 0.1s ease-out'
-            }}
-          >
-            <img 
-              src={imgSpiderman} 
-              alt="Hidden Superhero Persona" 
-              className="absolute inset-0 w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-[2s] ease-out"
-            />
-            
-            {/* Inner spotlight glow matched inside the mask */}
-            <div className="absolute inset-0 bg-gradient-radial from-transparent via-black/20 to-black/80" />
-          </div>
-
-          {/* Interaction Hint Overlay */}
-          <div className="absolute inset-0 pointer-events-none flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-             <div className="w-24 h-24 rounded-full border border-white/20 scale-150 animate-ping absolute" />
-          </div>
         </div>
 
         {/* Right Column: Story & Details */}
