@@ -8,6 +8,11 @@ const NAV_LINKS = [
   { name: 'Contact', href: '#contact' },
 ];
 
+const SOCIAL_LINKS = [
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/narayan-behera-a8bbab262' },
+  { name: 'GitHub', href: 'https://github.com/narayanbehera14' },
+];
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -110,7 +115,7 @@ export default function Navbar() {
               <circle cx="12" cy="12" r="6" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
             </svg>
             <span className="text-white font-bold tracking-widest uppercase text-sm ml-2 opacity-90 group-hover:opacity-100 transition-opacity">
-              Spider
+              NARAYAN
             </span>
           </div>
 
@@ -130,8 +135,20 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Social Links + CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            {SOCIAL_LINKS.map((link, index) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-400 hover:text-white text-sm font-medium tracking-wide transition-colors duration-300"
+              >
+                {link.name}
+              </a>
+            ))}
+
             <button 
               ref={el => linksRef.current[NAV_LINKS.length] = el} // animate with the links
               className="relative px-6 py-2.5 rounded-full overflow-hidden group bg-transparent border border-white/20 text-white text-sm font-medium tracking-wider hover:border-white/60 transition-colors duration-300"
@@ -175,6 +192,21 @@ export default function Navbar() {
               <span className="absolute -bottom-2 left-1/2 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-1/2 group-hover:left-1/4"></span>
             </a>
           ))}
+
+          <div className="flex flex-col items-center gap-4 mt-12">
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-base font-medium text-gray-400 hover:text-white transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
           
           <button 
             ref={el => mobileLinksRef.current[NAV_LINKS.length] = el}

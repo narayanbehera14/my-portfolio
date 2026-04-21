@@ -3,8 +3,8 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { vertexShader, fragmentShader } from './HeroShaders';
 
-import imgSpiderman from '../assets/spiderman/20260407_055437.png';
-import imgMan from '../assets/man/Profile.photo.png.jpeg';
+import imgSpiderman from '../assets/spiderman/image.png';
+import imgMan from '../assets/man/Profile.photo.png.jpegProfile.photo.png.jpeg';
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -122,10 +122,11 @@ export default function Hero() {
       
       // Also update DOM custom cursor position if needed
       if(cursorRef.current) {
+        const currentWidth = container.clientWidth;
+        const currentHeight = container.clientHeight;
         gsap.set(cursorRef.current, {
-           x: mouseCurrent.current.x * width,
-           y: mouseCurrent.current.y * height, // using normalized, so 0 top wait...
-           // Actually threejs UV y is 0 bottom, 1 top. But our uMouse is updated below. Let's fix cursor DOM below.
+           x: mouseCurrent.current.x * currentWidth,
+           y: (1 - mouseCurrent.current.y) * currentHeight,
         });
       }
 
@@ -137,9 +138,9 @@ export default function Hero() {
     // 5. Setup interaction event handlers
     const onMouseMove = (e) => {
       const rect = container.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / width;
+      const x = (e.clientX - rect.left) / rect.width;
       // In Three.js UV space, Y=0 is bottom, Y=1 is top.
-      const y = 1.0 - ((e.clientY - rect.top) / height);
+      const y = 1.0 - ((e.clientY - rect.top) / rect.height);
       
       mouseTarget.current.x = x;
       mouseTarget.current.y = y;
@@ -200,8 +201,8 @@ export default function Hero() {
         if(e.touches.length > 0) {
             const touch = e.touches[0];
             const rect = container.getBoundingClientRect();
-            mouseTarget.current.x = (touch.clientX - rect.left) / width;
-            mouseTarget.current.y = 1.0 - ((touch.clientY - rect.top) / height);
+            mouseTarget.current.x = (touch.clientX - rect.left) / rect.width;
+            mouseTarget.current.y = 1.0 - ((touch.clientY - rect.top) / rect.height);
             
             // Toggle hover effect on touch
             if (!isHovered) {
@@ -263,20 +264,22 @@ export default function Hero() {
             </p>
             
             <h1 className="text-2xl md:text-3xl lg:text-[1rem] xl:text-[3.5rem] font-bold tracking-tighter drop-shadow-2xl leading-[1.05] font-sans">
-              Crafting Digital<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500 font-serif italic font-light pr-2">Excellence</span> from<br />
-              End to End
+              Aspiring DevOps & CloudOps<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-violet-500 font-serif italic font-light pr-2">Engineer</span>
             </h1>
+            <p className="text-sm md:text-base text-gray-300 font-medium tracking-widest uppercase mt-4 opacity-90 drop-shadow-md">
+              Full Stack Developer | Open to DevOps & SDE Roles
+            </p>
           </div>
           
           {/* Right Side: Description and CTA */}
           <div className=" flex-1 max-w-md text-left md:text-right flex flex-col md:items-end">
             <p className="w-110 text-lg md:text-xl text-gray-300 drop-shadow-xl font-light tracking-wide leading-relaxed mb-8">
-              I build scalable web applications that merge striking design with robust, high-performance functionality. Seamless interactions, engineered for the future.
+              I engineer cloud-ready applications, automated CI/CD pipelines, and responsive interfaces using AWS, Docker, Kubernetes, Jenkins, React, and Python.
             </p>
             
             <button className="pointer-events-auto px-8 py-4 rounded-full border border-white/30 text-white text-sm tracking-[0.2em] uppercase font-medium hover:bg-white hover:text-black hover:border-white transition-all duration-500 backdrop-blur-sm shadow-xl inline-block">
-              Start a Project
+              Explore My Work
             </button>
           </div>
             

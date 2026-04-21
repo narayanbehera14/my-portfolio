@@ -2,39 +2,40 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import imgSpiderman from '../assets/spiderman/20260407_055437.png';
-import imgMan from '../assets/man/Profile.photo.png.jpeg';
+import imgSpiderman from '../assets/spiderman/image.png';
+import imgMan from '../assets/man/Profile.photo.png.jpegProfile.photo.png.jpeg';
+import imgHome from '../assets/spiderman/home.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MISSIONS = [
   {
     id: '01',
-    name: 'The Nexus Protocol',
-    description: 'Engineered a seamless, real-time communication platform built to handle thousands of concurrent global users.',
-    tech: ['React', 'WebSockets', 'Node.js', 'Tailwind'],
-    image: imgSpiderman,
-    link: '#',
+    name: 'YourTourGuide',
+    description: 'YourTourGuide is a full-stack travel web application that helps users explore Mumbai with ease. It features search and filtering, detailed place views with ratings, and secure user authentication..',
+    tech: ['React', ' AWS Lambda','JavaScript', ' Tailwind CSS'],
+   
+    link: 'https://your-tour-guide-2ffo.vercel.app/',
     blend: 'mix-blend-luminosity brightness-75',
-  },
-  {
-    id: '02',
-    name: 'Operation: Aether',
-    description: 'A high-performance digital storefront optimized for secure, millisecond-latency checkout flows.',
-    tech: ['Next.js', 'PostgreSQL', 'Stripe API', 'GSAP'],
-    image: imgMan,
-    link: '#',
-    blend: 'mix-blend-luminosity grayscale',
-  },
-  {
-    id: '03',
-    name: 'Project Aegis',
-    description: 'A heavy-duty, fortified internal dashboard managing complex data infrastructures and visual analytics.',
-    tech: ['React', 'Python', 'GraphQL', 'AWS'],
-    image: imgSpiderman,
-    link: '#',
-    blend: 'mix-blend-overlay brightness-125 saturate-150',
   }
+  // {
+  //   id: '02',
+  //   name: 'Operation: Aether',
+  //   description: 'A high-performance digital storefront optimized for secure, millisecond-latency checkout flows.',
+  //   tech: ['Next.js', 'PostgreSQL', 'AWS', 'Kubernetes'],
+  //   image: imgMan,
+  //   link: '#',
+  //   blend: 'mix-blend-luminosity grayscale',
+  // },
+  // {
+  //   id: '03',
+  //   name: 'Project Aegis',
+  //   description: 'A heavy-duty, fortified internal dashboard managing complex data infrastructures and visual analytics.',
+  //   tech: ['React', 'Python', 'GraphQL', 'Jenkins'],
+  //   image: imgSpiderman,
+  //   link: '#',
+  //   blend: 'mix-blend-overlay brightness-125 saturate-150',
+  // }
 ];
 
 const ProjectCard = ({ project }) => {

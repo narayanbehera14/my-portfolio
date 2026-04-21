@@ -3,8 +3,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Reuse our hero assets for the dual-identity mask effect prototype
-import imgSpiderman from '../assets/spiderman/20260407_055437.png';
-import imgMan from '../assets/man/Profile.photo.png.jpeg';
+import imgSpiderman from '../assets/spiderman/image.png';
+import imgMan from '../assets/man/Profile.photo.png.jpegProfile.photo.png.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -147,18 +147,25 @@ export default function About() {
 
           <div className="overflow-hidden">
             <p className="stagger-reveal text-lg md:text-xl text-gray-400 font-light leading-relaxed max-w-xl">
-              There are two sides to every great digital experience. The relentless logic of the backend, and the striking, emotional pull of the frontend. As a Full-Stack Developer, my superpower lies in bridging that gap—masking complex, high-performance web architecture behind beautiful, fluid, and fiercely creative user interfaces.
+              There are two sides to every great digital experience: the backend systems that keep services reliable, and the frontend interactions that make them feel human. As an aspiring DevOps & CloudOps engineer, I bridge those worlds by building scalable systems, automated pipelines, and polished UI experiences.
+            </p>
+            <p className="stagger-reveal text-lg md:text-xl text-gray-400 font-light leading-relaxed max-w-xl mt-6">
+              I combine Full Stack development with cloud automation, tackling AWS, Docker, Kubernetes, Jenkins, Linux, GitHub Actions, React, and Python to deliver production-ready solutions.
             </p>
           </div>
 
-          {/* Expertise Highlights */}
+          {/* Tech Skills */}
           <div className="overflow-hidden">
             <div className="stagger-reveal grid grid-cols-2 gap-x-8 gap-y-4 pt-4 border-t border-white/10 max-w-xl">
               {[
-                "Full-Stack Fluidity", 
-                "Motion & Micro-Interactions", 
-                "System Architecture", 
-                "Pixel-Perfect UIs"
+                "AWS", 
+                "Docker", 
+                "Kubernetes", 
+                "Jenkins",
+                "Linux", 
+                "CI/CD", 
+                "React", 
+                "Python"
               ].map((skill, i) => (
                 <div key={i} className="flex items-center space-x-3 group">
                   <div className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-red-500 transition-colors duration-300" />
