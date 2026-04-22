@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Personal portrait for About section
-import imgProfile from '../assets/man/Profile.photo.png.jpegProfile.photo.png.jpeg';
+import imgProfile from '../assets/man/Profile.photo.png.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,7 +73,8 @@ export default function About() {
           <img 
             src={imgProfile} 
             alt="Narayan Behera" 
-            className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center' }}
           />
         </div>
 

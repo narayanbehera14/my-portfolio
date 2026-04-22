@@ -1,40 +1,28 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-import imgProfile from '../assets/man/Profile.photo.png.jpegProfile.photo.png.jpeg';
+import imgHero from '../assets/spiderman/20260407_055437.png';
 
 export default function Hero() {
-  const containerRef = useRef(null);
   const textRef = useRef(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
-
-    const container = containerRef.current;
-    
-    // Hero entrance animation
-    gsap.fromTo(container, 
-      { opacity: 0, y: 80 }, 
-      { opacity: 1, y: 0, duration: 2, ease: "power3.out", delay: 0.1 }
-    );
+    if (!textRef.current) return;
     
     // Text entrance animation
-    if (textRef.current) {
-      gsap.fromTo(textRef.current,
-        { opacity: 0, y: -60 },
-        { opacity: 1, y: 0, duration: 1.5, ease: "power3.out", delay: 0.8 }
-      );
-    }
+    gsap.fromTo(textRef.current,
+      { opacity: 0, y: -60 },
+      { opacity: 1, y: 0, duration: 1.5, ease: "power3.out", delay: 0.3 }
+    );
   }, []);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-black flex items-center justify-center">
-      {/* Profile Image Background */}
+      {/* Hero Background Image */}
       <img 
-        ref={containerRef}
-        src={imgProfile} 
-        alt="Narayan Behera" 
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        src={imgHero} 
+        alt="Hero" 
+        className="absolute inset-0 w-full h-full object-cover"
       />
       
       {/* Dark overlay for text readability */}
