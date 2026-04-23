@@ -15,7 +15,7 @@ const CERTIFICATIONS = [
     issuer: 'Intellipaat',
     date: '2026',
     image: certAWS,
-    link: '#',
+    link: 'https://intellipaat.com/academy/certificate-link/?Yz0xNjU0JnU9MzM3NTUwJmV4dD0x',
     badge: 'AWS'
   },
   {
@@ -53,7 +53,7 @@ const CertificationCard = ({ cert }) => {
   return (
     <div 
       ref={cardRef}
-      className="certification-card relative w-full aspect-[3/4] rounded-xl overflow-hidden group cursor-pointer border border-white/10 hover:border-white/30 transition-all duration-300"
+      className="certification-card relative w-full aspect-[4/3] rounded-xl overflow-hidden group cursor-pointer border border-white/10 hover:border-white/30 transition-all duration-300"
     >
       {/* Certificate Image */}
       <img 

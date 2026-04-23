@@ -73,8 +73,7 @@ export default function About() {
           <img 
             src={imgProfile} 
             alt="Narayan Behera" 
-            className="w-full h-full object-cover"
-            style={{ objectPosition: 'center' }}
+            className="w-full h-full object-cover object-top bg-gradient-to-b from-gray-900 to-black"
           />
         </div>
 
