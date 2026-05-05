@@ -12,6 +12,14 @@ const MISSIONS = [
     tech: ['React', ' AWS Lambda','JavaScript', ' Tailwind CSS'],
     link: 'https://your-tour-guide-2ffo.vercel.app/',
     blend: 'mix-blend-luminosity brightness-75',
+  },
+  {
+    id: '02',
+    name: 'Serverless Contact Form Website using AWS',
+    description: 'Built a serverless contact form web application using Amazon S3, AWS Lambda, API Gateway, and DynamoDB. The project allows users to submit contact details, stores messages in DynamoDB, and returns a success response through API Gateway.',
+    tech: ['AWS Dynamodb', ' AWS Lambda','JavaScript', 'AWS S3','API Gateway'],
+    link: 'http://narayan-contact-form-project.s3-website.ap-south-1.amazonaws.com/contact-form-aws/',
+    blend: 'mix-blend-luminosity brightness-75',
   }
 ];
 
